@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas影像處理</title>
+</head>
+
+<body>
+    <!--上傳圖檔-->
+    <form action="/somewhere/to/upload" enctype="multipart/form-data">
+        上傳圖片：<input name="img_name" type="file" id="imgUpload" accept="image/gif, image/jpeg, image/png">    
+    </form>
+    <img id="tmpImg"/>
+
+    <!--畫布-->
+    <canvas id="canvas"></canvas>
+    <button onclick="histagrm()">測試</button>
+    <button onclick="scale()">放大</button>
+    <button onclick="grayscale()">灰階</button>
+    <button onclick="flip()">水平翻轉</button>
+    <button onclick="negative()">負片效果</button>
+    <button onclick="highlight()">變亮</button>
+    <button onclick="mix()">飽和度增值</button>
+    <button onclick="downLoad()">下載</button>
+    <a href="#" download="download.png" onclick="this.href=canvas.toDataURL();" >下載</a>
+
+    <script src="/js.js"></script>
+</body >
+</html>
