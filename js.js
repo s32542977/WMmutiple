@@ -3,7 +3,8 @@ var imgInp = document.getElementById('imgUpload');
 var TMPimg = document.getElementById('tmpImg');
 var img = new Image();
 var imgData;
-var ctx,ctx2;
+var ctx;
+
 
 //載入圖片
 imgInp.onchange = evt => {
@@ -25,6 +26,7 @@ imgInp.onchange = evt => {
             
       }
 };
+
 
 //增加對比
 function histagrm(){
@@ -63,13 +65,9 @@ function histagrm(){
     sum=sum+his[254-i]
     if(sum>=k){b=i;break}
   }
-  console.log('sum=',sum)
-  console.log('k=',k)
 
   ab=b-a
-  console.log(a)
-  console.log(b)
-  console.log(ab)
+
 
   //設置對照值lut
   let lut=new Array(255);
@@ -95,32 +93,10 @@ function histagrm(){
     d[i+2]=lut[d[i+2]]
   }
 
-  console.log(d)
 
    hsv2rgb (d)
 }
 
-//縮放
-function scale(){
-  //ctx.drawImage(img, 0, 0, img.width*1.2, img.height*1.2)
-  let d = imgData.data
-  let newAry =new Uint8ClampedArray([])
-
-  for (let i = 0; i < d.length; i += 4) {
-      newAry[i]=d[i]
-     newAry[i+1]=d[i + 1]
-    newAry[i+2]=d[i + 2]
-  }
-  console.log(newAry)
-
-
-  for (let i = 0; i < d.length; i += 4) {
-    d[i] = newAry[i]
-    d[i + 1] = newAry[i+1]
-    d[i + 2] = newAry[i+2]
-  }
-  console.log(d)
-}
 
 //灰階
 function grayscale(){
@@ -181,6 +157,7 @@ function negative(){
   }
   ctx.putImageData(imgData, 0, 0)
 }
+
 
 //變亮
 function highlight(){
